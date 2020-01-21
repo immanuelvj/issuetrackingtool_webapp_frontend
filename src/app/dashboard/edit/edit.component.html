@@ -1,0 +1,108 @@
+
+<button class="btn btn-sm" (click)="changeToDashboardView()">BacK to Your Dashboard</button>
+
+<hr>
+<div class="row" style="background-color: rgba(255,255,255,0.9);">
+  <div class="col-sm-2" style="height: 300px;overflow:auto;background-color: teal;">
+
+    <div class="input-group" style="margin:5px;">
+      <div class="input-group-append">
+        <button class="input-group-text" style="color:white;background-color:#008040;padding:4.6px ;" (click)="addWatcher()">Add
+          Watcher</button>
+      </div>
+      <select class="form-control" [(ngModel)]="watcherName" name="watcherName" id="watcherName">
+        <option *ngFor="let user of allUsers " value={{user.userId}}>{{user.firstName}} {{user.lastName}}</option>
+      </select>
+    </div>
+    <div *ngFor="let watcher of currentWatcher" >
+      <p style="background-color: white;padding:10px">{{watcher.userName}}<i style="float: right;color: red;" (click)="deleteThisWatcher(watcher)">x</i></p>
+    </div>
+  </div>
+  
+
+    <div class="col-sm-8 text-center" *ngIf="currentIssueId">  
+      <form #createIssueForm="ngForm" (ngSubmit)="editIssue()">
+      <div class="input-group" style="margin:5px;">
+        <div class="input-group-append">
+          <span class="input-group-text" style="color:white;background-color:#008040;padding:4.6px ;">Issue Name</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Enter Issue Name" name="issueName"
+          [(ngModel)]="currentIssueId.issueName" id="issueName" />
+      </div>
+      <div class="input-group" style="margin:5px;">
+        <div class="input-group-append">
+          <span class="input-group-text" style="color:white;background-color:#008040;padding:4.6px ;">Issue
+            Status</span>
+        </div>
+        <select class="form-control" [(ngModel)]="currentIssueId.issueStatus" name="issueStatus" id="issueStatus">
+          <option>Backlog</option>
+          <option>In-Process</option>
+          <option>In-Test</option>
+          <option>Completed</option>
+        </select>
+      </div>
+      <div style="margin:10px">
+        <quill-editor [modules]="modules" [styles]="{height:'100px'}" name="issueDescription"
+          [(ngModel)]="currentIssueId.issueDescription" placeholder="Enter the description of the issue"></quill-editor>
+      </div>
+
+      <div class="input-group" style="margin:5px;">
+        <div class="input-group-append">
+          <span class="input-group-text" style="color:white;background-color:#008040;padding:4.6px ;">Issue
+            Assignee</span>
+        </div>
+        <select class="form-control" [(ngModel)]="currentIssueId.issueAssigneeId" name="issueAssigneeId"
+          id="issueAssigneeId">
+          <option *ngFor="let user of allUsers " value={{user.userId}}>{{user.firstName}} {{user.lastName}}</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <button class="btn btn-md" type="submit">Edit Issue</button>
+  
+        </div>
+      </div>
+    </form>
+  
+    </div>
+    
+  <div class="col-sm-2" style="height: 300px;overflow:auto;background-color: teal;">
+    <div class="input-group" style="margin:5px;">
+      <button type="button" class="btn btn-sm" (click)="fileInput.click()" style="background-color: #008040">
+        <span>Choose File</span>
+        <input #fileInput type="file" alife-file-to-base64 (onFileChanged)="onFileChanges($event)" [(fileModel)]="files"
+          style="display:none;" />
+      </button>
+      
+      <button class="btn btn-sm" (click)="addImage()" style="background-color: #008040;">Upload Image</button>
+      <input type="text" disabled value={{this.selectedFileName}}
+        style="background-color:white;height:45.8px;border:0px;margin:10px" />
+    </div>
+    <div class="card" *ngFor="let image of currentImage" style="margin: 2px;" >
+      <p (click)="deleteThisImage(image)" style="margin:0;color:red">x</p>
+      <img [src]='image.imageData | safeHtml'  class="card-img-top img-fluid" alt="..." style="width:200px;height:200px">
+      <div class="card-body">
+        <p class="card-text">Posted By : {{image.userName}}</p>
+      </div>
+    </div> 
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-sm-6 text-center">
+    <div class="form-group">
+      <textarea class="form-control" rows="1" id="comment" placeholder="Enter a Comment" [(ngModel)]="comment"></textarea>
+      <button class="btn btn-md" (click)="addComment()" style="margin-top: 10px;">Add Comment</button>
+    </div>
+  </div>
+  
+<div class="col-sm-6 text-center"  style="height:200px;overflow: auto;">
+  <div *ngFor="let comment of commentList" style="background-color:teal;border:2px solid white;padding:10px;margin:3px;color:white;">
+    <p style="color: red;float:left" (click)="deleteThisComment(comment)">x</p>
+    <h6>{{comment.message}}</h6>
+    <p style="color:black;"> - {{comment.userName}}</p>
+
+  </div>
+    
+</div>
+</div>

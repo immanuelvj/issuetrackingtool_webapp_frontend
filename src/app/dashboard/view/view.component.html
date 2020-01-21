@@ -1,0 +1,47 @@
+
+<button class="btn btn-sm" (click)="changeToDashboardView()">BacK to Your Dashboard</button>
+
+<hr>
+<div class="row" >
+  <div class="col-sm-2 text-center"  style="height: 300px;overflow:auto;background-color: teal;">
+    <h3 style="color: white;">WATCHERS LIST</h3>
+    <div *ngFor="let watcher of currentWatcher" >
+      <p style="background-color: white;padding:10px">{{watcher.userName}}</p>
+    </div>
+  </div>
+  <div class="col-sm-8 text-center" *ngIf="currentIssueId" style="color:teal">
+    <h1>{{currentIssueId.issueName}}</h1>
+    <h4>Status : {{currentIssueId.issueStatus}}</h4>
+    <div [innerHtml]="currentIssueId.issueDescription"></div>
+    <p>Issue Reported by : {{currentIssueId.issueReporterName}}</p>
+    <p>Issue Assinged To : {{currentIssueId.issueAssigneeName}}</p>
+    <p>Last Modified: {{currentIssueId.issueLastModified | date}}</p>
+    <p>Created On : {{currentIssueId.issueCreatedOn | date}}</p>
+  </div>
+  <div class="col-sm-2 text-center"  style="height: 300px;overflow:auto;background-color:teal;">
+    <h3 style="color: white;">Related Screenshots</h3>
+    <div class="card" *ngFor="let image of currentImage" style="margin-top: 2px;">
+      <img [src]='image.imageData | safeHtml'  class="card-img-top img-fluid" alt="..." style="width:200px;height:200px">
+      <div class="card-body">
+        <p class="card-text">Posted By : {{image.userName}}</p>
+      </div>
+    </div> 
+ 
+    </div>
+ 
+</div>
+<div class="row">
+  <div class="col-sm-12 text-center" *ngIf="currentIssueId">
+    <a class="btn btn-lg" style="color:teal;" [routerLink]="['/edit',currentIssueId.issueId]">Edit </a>
+    <a class="btn btn-danger" style="background-color:teal;color:white" (click)="deleteThisBlog()">Delete </a>
+  </div>
+</div>
+<div class="row" style="height:250px;overflow: auto;">
+  <div class="col-4 offset-4 text-center" >
+    <div *ngFor="let comment of commentList" style="background-color:teal;border:2px solid white;padding:10px;margin:3px;color:white;">
+      <h6>{{comment.message}}</h6>
+      <p style="color:black;"> - {{comment.userName}}</p>
+  
+    </div>
+      </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row ">
+  <div class="col-sm-4 offset-sm-4 text-center background">
+<p style="color:white;">Sign-Up Now</p>
+<form #signUpForm="ngForm" (ngSubmit)="signupFunction()">
+  <div class="form-group">
+      <input type="text" class="form-control" name="firstname" [(ngModel)]="firstName" placeholder="Enter First Name" id="firstname">
+    </div>
+  <div class="form-group">
+      <input type="text" class="form-control" name="lastname" [(ngModel)]="lastName" placeholder="Enter Last Name" id="lastname">
+    </div>
+    
+  <div class="form-group">
+    <input type="text" class="form-control" name="userName" [(ngModel)]="userName" placeholder="Enter userName" id="userName">
+  </div>
+  <div class="form-group">
+      <input type="number" class="form-control" name="mobile" [(ngModel)]="mobile" placeholder="Enter Mobile Number" id="mobile">
+    </div>
+  <div class="form-group">
+    <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Enter email ID" id="email">
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Enter password" id="pwd">
+  </div>
+  <button type="submit" class="btn btn-primary">REGISTER</button>
+  <hr style="background-color: white;">
+  <a style="color:white" [routerLink]="['/login']">Already Registered ? Login Now !</a>
+</form>
+  </div>
+</div>

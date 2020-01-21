@@ -1,0 +1,23 @@
+.background{
+    background-color:#008040;
+    padding:30px;
+    border-radius: 10px;
+    
+}
+
+button{
+    background-color:white;
+    border:1px solid white;
+    color:#008040;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: #008040;
+    color:white;
+}
+
+input{
+    border-radius: 8px;
+}

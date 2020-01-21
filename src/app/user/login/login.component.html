@@ -1,0 +1,27 @@
+<div class="row ">
+  <div class="col-sm-4 offset-sm-4 text-center background">
+<p style="color:white;">Sign-in to your account</p>
+<hr>
+<form #loginForm="ngForm" (ngSubmit)="signin()">
+  <div class="input-group" style="margin:5px;">
+    <div class="input-group-append">
+      <span class="input-group-text" style="color:white;background-color:#008040;padding:4.6px ;">Username</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Enter Username" name="userName" [(ngModel)]="userName" id="userName" />
+    </div>
+  <div class="input-group" style="margin:5px;">
+    <div class="input-group-append">
+      <span class="input-group-text" style="color:white;background-color:#008040;padding:6.2px;">Password</span>
+    </div>
+    <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Enter Password" id="pwd">
+     </div>
+  <button type="submit" class="btn btn-primary" style="margin:5px">LOGIN</button>
+  </form>
+  <hr style="background-color:white">
+    <button class ="btn btn-large" (click)="googleLogin()">Login With Google</button>
+   <hr style="background-color: white;">
+  <a style="color:white" [routerLink]="['/signup']">Dont have an account ? Register Now !</a>
+
+  </div>
+ 
+</div>

@@ -1,0 +1,46 @@
+.background{
+    background-color:#008040;
+    padding:10px;
+}
+
+input{
+    border-radius:8px;
+
+}
+
+
+button{
+    background-color:white;
+    border:1px solid white;
+    color:#008040;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+button:hover{
+    background-color:#008040;
+    color:white;
+}
+
+.backgroundhead{
+    background-color:#008080;
+}
+
+.borderbox{
+    border:1px solid white;
+    padding:5px;
+    color: white;
+    font-weight:600;
+}
+
+
+.backgroundheadissue{
+    background-color: rgba(0,128,128,0.8);
+}
+
+a:hover{
+    text-decoration: none;
+    background-color:rgba(0,128,128,1);
+    padding:10px;
+    margin-top:10px ;
+}

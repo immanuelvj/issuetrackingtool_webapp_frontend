@@ -1,0 +1,20 @@
+.background{
+    background-color: #008080;
+}
+
+.headfont{
+    font-weight: 800;
+    color:white;
+    padding:30px;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align:center;
+    color:white;
+    background-color: #008080;
+    padding:5px;  
+}
