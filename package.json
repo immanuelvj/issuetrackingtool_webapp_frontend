@@ -23,7 +23,7 @@
     "angular-particle": "^1.0.4",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng2-cookies": "^1.0.12",
     "ng2-search-filter": "^0.5.1",
     "ng6-toastr-notifications": "^1.0.4",
